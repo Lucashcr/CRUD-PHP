@@ -22,7 +22,7 @@ class Task
         if(!$this->deadline) 
             return "Sem prazo";
         
-        return date_format($this->deadline, "d/m/Y H:i:s");
+        return date_format($this->deadline, "d/m/Y H:i");
     }
 
     public function __construct($task)
