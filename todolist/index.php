@@ -1,5 +1,5 @@
 <?php
-require_once "dbconn.php";
+require_once "src/dbconn.php";
 $conn = new DBConn();
 ?>
 
@@ -41,7 +41,7 @@ $conn = new DBConn();
                 }
                 ?>
             </tbody>
-        </table>
+        </table>        
     </main>
     <?php require_once "html/base/footer.html" ?>
 </body>
