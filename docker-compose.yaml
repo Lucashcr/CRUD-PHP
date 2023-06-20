@@ -1,0 +1,22 @@
+services:
+    php:
+        container_name: php
+        image: php:8.0-apache
+        volumes:
+            - ./todolist:/var/www/html/
+        ports:
+            - 8000:80
+            
+    db:
+        container_name: db
+        image: mysql
+        restart: always
+        volumes:
+            - /var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: rootpass
+            MYSQL_DATABASE: todolist
+            MYSQL_USER: mysql
+            MYSQL_PASSWORD: password
+        ports:
+            - "3307:3306"
