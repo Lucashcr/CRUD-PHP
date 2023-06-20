@@ -1,7 +1,11 @@
 services:
     php:
         container_name: php
-        image: php:8.0-apache
+        build:
+            context: ./.docker/php
+            dockerfile: Dockerfile
+        depends_on:
+            - db
         volumes:
             - ./todolist:/var/www/html/
         ports:
@@ -12,11 +16,11 @@ services:
         image: mysql
         restart: always
         volumes:
-            - /var/lib/mysql
+            - ./data/db:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: rootpass
             MYSQL_DATABASE: todolist
             MYSQL_USER: mysql
             MYSQL_PASSWORD: password
         ports:
-            - "3307:3306"
+            - "3306:3306"

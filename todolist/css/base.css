@@ -54,6 +54,37 @@ main {
     padding: 50px;
 }
 
+main .task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main table thead {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-fg);
+
+    border: 1px solid var(--secondary-bg);
+}
+
+main table thead tr * {
+    padding: 5px;
+}
+
+main table tbody tr * {
+    background-color: var(--primary-bg);
+    color: var(--primary-fg);
+
+    border: 1px solid var(--secondary-bg);
+
+    padding: 5px;
+}
+
 footer {
     padding: 20px 0;
     text-align: center;
