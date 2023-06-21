@@ -66,8 +66,8 @@ class Task
         <td>{$this->get_status()}</td>
         <td>{$this->get_priority()}</td>
         <td>{$this->get_formatted_deadline()}</td>
-        <td><button class='btn-edit' onclick='editTask({$this->id})'><i class='fa fa-pencil'>Editar</i></button></td>
-        <td><button class='btn-delete' onclick='deleteTask({$this->id})'><i class='fa fa-trash'>Excluir</i></button></td>
+        <td><button class='btn-edit' onclick='editTask({$this->id})'><i class='fa fa-pencil'> Editar</i></button></td>
+        <td><button class='btn-delete' onclick='deleteTask({$this->id})'><i class='fa fa-trash'> Excluir</i></button></td>
         </tr>";
     }
 
