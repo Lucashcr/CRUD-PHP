@@ -30,7 +30,7 @@ class Task
         $this->title = $task[1];
         $this->description = $task[2] ? $task[2] : "-";
         $this->priority = $task[3];
-        $this->deadline = $task[4] ? new DateTime($task[4]) : null;
+        $this->deadline = $task[4]? new DateTime($task[4]) : null;
         $this->status = $task[5] ? "Concluída" : "Pendente";
     }
 

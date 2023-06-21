@@ -28,5 +28,16 @@ class DBConn
             }, $result);
         }
     }
+
+    public function insert_task($task)
+    {
+        $stmt = $this->mysqli->prepare("INSERT INTO tasks (title, description, priority, deadline) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $task->title, $task->description, $task->priority, $task->deadline);
+        $stmt->execute();
+        if ($stmt->errno) {
+            echo "Failed to insert task: (" . $stmt->errno . ") " . $stmt->error;
+            return;
+        }
+    }
 }
 ?>

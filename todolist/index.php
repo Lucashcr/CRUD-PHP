@@ -41,9 +41,16 @@ $conn = new DBConn();
                 }
                 ?>
             </tbody>
-        </table>        
+        </table>
+        <? require "html/base/create_form.html" ?>
+        <button onclick="toggleCreateTaskForm()">Nova tarefa</button>
     </main>
     <?php require_once "html/base/footer.html" ?>
+    <script>
+        function toggleCreateTaskForm() {
+            let createForm = document.getElementById("create-form");
+            createForm.hidden = !createForm.hidden;
+        }
+    </script>
 </body>
-
 </html>

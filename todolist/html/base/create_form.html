@@ -1,0 +1,17 @@
+<form action="src/create_task.php" method="post" id="create-form" hidden>
+    <fieldset>
+        <input type="text" name="title" placeholder="Título" required>
+        <input type="datetime-local" name="deadline">
+        <select name="priority" required>
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+        </select>
+        <input type="checkbox" name="status">
+        <label for="status">Concluída</label>
+    </fieldset>
+    <fieldset>
+        <textarea name="description" placeholder="Descrição"></textarea>
+    </fieldset>
+    <input type="submit" value="Enviar">
+</form>
