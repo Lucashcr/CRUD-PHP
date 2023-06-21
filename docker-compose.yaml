@@ -13,10 +13,12 @@ services:
             
     db:
         container_name: db
-        image: mysql
+        build:
+            context: ./.docker/mysql
+            dockerfile: Dockerfile
         restart: always
         volumes:
-            - ./data/db:/var/lib/mysql
+            - ./db/data:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: rootpass
             MYSQL_DATABASE: todolist

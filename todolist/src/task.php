@@ -25,14 +25,21 @@ class Task
         return date_format($this->deadline, "d/m/Y H:i");
     }
 
-    public function __construct($task)
+    public function __construct($title, $description, $priority, $deadline, $status)
     {
-        $this->title = $task[1];
-        $this->description = $task[2] ? $task[2] : "-";
-        $this->priority = $task[3];
-        $this->deadline = $task[4]? new DateTime($task[4]) : null;
-        $this->status = $task[5] ? "Concluída" : "Pendente";
+        $this->title = $title;
+        $this->description = $description;
+        $this->priority = $priority;
+        $this->deadline = new DateTime($deadline);
+        $this->status = $status;
     }
+    // {
+    //     $this->title = $task[1];
+    //     $this->description = $task[2] ? $task[2] : "-";
+    //     $this->priority = $task[3];
+    //     $this->deadline = $task[4]? new DateTime($task[4]) : null;
+    //     $this->status = $task[5] ? "Concluída" : "Pendente";
+    // }
 
     public function toHTML()
     {

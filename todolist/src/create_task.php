@@ -6,14 +6,13 @@ if (isset($_POST["status"]))
 else
     $_POST["status"] = false;
 
-$task = new Task([
-    null,
+$task = new Task(
     $_POST["title"],
     $_POST["description"],
     $_POST["priority"],
     $_POST["deadline"],
     $_POST["status"]
-]);
+);
 
 $conn = new DBConn();
 $conn->insert_task($task);

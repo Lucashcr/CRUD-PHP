@@ -18,21 +18,21 @@ class DBConn
 
     public function get_all_tasks()
     {
-        $result = $this->mysqli->query("SELECT * FROM tasks")->fetch_all();
-        if (!$result) {
-            echo "Failed to get all tasks: (" . $this->mysqli->errno . ") " . $this->mysqli->error;
-            return;
-        } else {
+        $q = $this->mysqli->query("SELECT title, description, priority, deadline, status FROM tasks");
+        $result = $q->fetch_all();
+        if ($result) {
             return array_map(function ($task) {
-                return new Task($task);
+                return new Task(...$task);
             }, $result);
         }
     }
 
     public function insert_task($task)
     {
-        $stmt = $this->mysqli->prepare("INSERT INTO tasks (title, description, priority, deadline) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $task->title, $task->description, $task->priority, $task->deadline);
+        $deadline_str = $task->deadline ? $task->deadline->format("Y-m-d H:i:s") : null;
+
+        $stmt = $this->mysqli->prepare("INSERT INTO tasks (title, description, priority, deadline, status) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $task->title, $task->description, $task->priority, $deadline_str, $task->status);
         $stmt->execute();
         if ($stmt->errno) {
             echo "Failed to insert task: (" . $stmt->errno . ") " . $stmt->error;
