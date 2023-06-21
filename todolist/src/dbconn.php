@@ -18,7 +18,7 @@ class DBConn
 
     public function get_all_tasks()
     {
-        $q = $this->mysqli->query("SELECT title, description, priority, deadline, status FROM tasks");
+        $q = $this->mysqli->query("SELECT id, title, description, priority, deadline, status FROM tasks");
         $result = $q->fetch_all();
         if ($result) {
             return array_map(function ($task) {

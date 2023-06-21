@@ -4,6 +4,7 @@ require_once "dbconn.php";
 header("Content-Type: application/json");
 
 $task = new Task(
+    $_POST["id"],
     $_POST["title"],
     $_POST["description"],
     $_POST["priority"],

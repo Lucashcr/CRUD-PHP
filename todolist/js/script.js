@@ -22,15 +22,3 @@ $("#create-form").on("submit", (event) => {
         tasksTBody.insertAdjacentHTML('beforeend', response);
     });
 });
-
-function get_tasks() {
-    $.ajax({
-        url: window.location.origin + "/src/get_tasks.php",
-        method: "GET",
-        dataType: "json"
-    }).done(function (response) {
-        tasksTBody.innerHTML = response.join("\n");
-    })
-}
-
-get_tasks();

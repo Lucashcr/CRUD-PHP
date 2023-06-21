@@ -2,6 +2,7 @@
 
 class Task
 {
+    private $id;
     private $title;
     private $description;
     private $status;
@@ -21,8 +22,9 @@ class Task
         return date_format($this->deadline, "d/m/Y H:i");
     }
 
-    public function __construct($title, $description, $priority, $deadline, $status)
+    public function __construct($id, $title, $description, $priority, $deadline, $status)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->priority = $priority;
@@ -58,16 +60,20 @@ class Task
     public function toHTML()
     {
         return "<tr>
-            <td>{$this->title}</td>
-            <td>{$this->description}</td>
-            <td>{$this->get_status()}</td>
-            <td>{$this->get_deadline()}</td>
-            <td>{$this->get_formatted_deadline()}</td>
+        <input type='hidden' name='id' id='id' value='{$this->id}'>
+        <td>{$this->title}</td>
+        <td>{$this->description}</td>
+        <td>{$this->get_status()}</td>
+        <td>{$this->get_priority()}</td>
+        <td>{$this->get_formatted_deadline()}</td>
+        <td><button class='btn-edit' onclick='editTask({$this->id})'><i class='fa fa-pencil'>Editar</i></button></td>
+        <td><button class='btn-delete' onclick='deleteTask({$this->id})'><i class='fa fa-trash'>Excluir</i></button></td>
         </tr>";
     }
 
     public function toArray() {
         return [
+            "id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
             "priority" => $this->priority,
