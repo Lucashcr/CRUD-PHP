@@ -31,15 +31,20 @@ class DBConn
 
     public function insert_task($task)
     {
-        $deadline_str = $task->deadline ? $task->deadline->format("Y-m-d H:i:s") : null;
-
         $stmt = $this->mysqli->prepare("INSERT INTO tasks (title, description, priority, deadline, status) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $task->title, $task->description, $task->priority, $deadline_str, $task->status);
+        $stmt->bind_param("sssss",
+            $task["title"],
+            $task["description"], 
+            $task["priority"], 
+            $task["deadline"],
+            $task["status"]
+        );
         $stmt->execute();
         if ($stmt->errno) {
             echo "Failed to insert task: (" . $stmt->errno . ") " . $stmt->error;
-            return;
+            return false;
         }
+        return true;
     }
 }
 ?>

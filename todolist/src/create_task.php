@@ -1,10 +1,7 @@
 <?php
 require_once "dbconn.php";
 
-if (isset($_POST["status"]))
-    $_POST["status"] = true;
-else
-    $_POST["status"] = false;
+header("Content-Type: application/json");
 
 $task = new Task(
     $_POST["title"],
@@ -15,8 +12,10 @@ $task = new Task(
 );
 
 $conn = new DBConn();
-$conn->insert_task($task);
-
-header("Location: /");
-exit();
+$result = $conn->insert_task($task->toArray());
+if ($result) {
+    echo json_encode($task->toHTML());
+} else {
+    echo json_encode(["error" => "Failed to insert task"]);
+}
 ?>

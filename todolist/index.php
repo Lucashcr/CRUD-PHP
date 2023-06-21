@@ -33,24 +33,16 @@ $conn = new DBConn();
                     <th>Prazo</th>
                 </tr>
             </thead>
-            <tbody>
-                <?
-                $tasks = $conn->get_all_tasks();
-                foreach ($tasks as $task) {
-                    echo $task->toHTML();
-                }
-                ?>
+            <tbody id="tasks-tbody">
             </tbody>
         </table>
         <? require "html/base/create_form.html" ?>
         <button onclick="toggleCreateTaskForm()">Nova tarefa</button>
     </main>
     <?php require_once "html/base/footer.html" ?>
-    <script>
-        function toggleCreateTaskForm() {
-            let createForm = document.getElementById("create-form");
-            createForm.hidden = !createForm.hidden;
-        }
-    </script>
+
+    <script src="js/createTaskFormActions.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
