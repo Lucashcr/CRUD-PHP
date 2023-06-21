@@ -36,10 +36,8 @@ $conn = new DBConn();
             <tbody>
                 <?
                 $tasks = $conn->get_all_tasks();
-                if ($tasks) {
-                    foreach ($tasks as $task) {
-                        echo $task->toHTML();
-                    }
+                foreach ($tasks as $task) {
+                    echo $task->toHTML();
                 }
                 ?>
             </tbody>

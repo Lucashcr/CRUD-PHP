@@ -24,6 +24,8 @@ class DBConn
             return array_map(function ($task) {
                 return new Task(...$task);
             }, $result);
+        } else {
+            return [];
         }
     }
 
