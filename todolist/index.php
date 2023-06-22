@@ -22,7 +22,7 @@ $conn = new DBConn();
 </head>
 
 <body>
-    <?php require_once "html/header.html" ?>
+    <?php require_once "html/base/header.html" ?>
     <main>
         <h1>Lista de tarefas</h1>
         <table>
@@ -40,11 +40,12 @@ $conn = new DBConn();
             <tbody id="tasks-tbody">
             </tbody>
         </table>
-        <? require "html/create_form.html" ?>
-        <? require "html/delete_form.html" ?>
+        <? require "html/forms/create_form.html" ?>
+        <? require "html/forms/delete_form.html" ?>
+        <? require "html/forms/update_form.html" ?>
         <button onclick="toggleTaskForm('create')">Nova tarefa</button>
     </main>
-    <?php require_once "html/footer.html" ?>
+    <?php require_once "html/base/footer.html" ?>
 
 
     <script src="js/crudTaskFormActions.js"></script>

@@ -11,18 +11,31 @@ function clearTaskForm(form) {
     document.getElementById(`${form}-status`).checked = false;
 }
 
-function editTask(id) {
-    console.log("edit task " + id);
+function fillTaskForm(form, id) {
+    console.log(form);
+    document.getElementById(`${form}-id`).value = id;
+    fetch(window.location.origin + "/src/get_task.php?id=" + id)
+        .then(response => response.json())
+        .then(task => {
+            document.getElementById(`${form}-title`).value = task.title;
+            document.getElementById(`${form}-description`).value = task.description;
+            document.getElementById(`${form}-priority`).value = task.priority;
+            document.getElementById(`${form}-deadline`).value = task.deadline;
+            document.getElementById(`${form}-status`).checked = task.status;
+        });
+    toggleTaskForm(form);
 }
 
-async function deleteTask(id) {
+function deleteTask(id) {
     document.getElementById("delete-id").value = id;
-    let task = await fetch(window.location.origin + "/src/get_task.php?id=" + id)
-        .then(response => response.json());
-    document.getElementById("delete-title").value = task.title;
-    document.getElementById("delete-description").value = task.description;
-    document.getElementById("delete-priority").value = task.priority;
-    document.getElementById("delete-deadline").value = task.deadline;
-    document.getElementById("delete-status").value = task.status;
+    fetch(window.location.origin + "/src/get_task.php?id=" + id)
+        .then(response => response.json())
+        .then(task => {
+            document.getElementById("delete-title").value = task.title;
+            document.getElementById("delete-description").value = task.description;
+            document.getElementById("delete-priority").value = task.priority;
+            document.getElementById("delete-deadline").value = task.deadline;
+            document.getElementById("delete-status").value = task.status;
+        });
     toggleTaskForm('delete');
 }

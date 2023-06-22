@@ -42,3 +42,29 @@ $("#delete-form").on("submit", (event) => {
     toggleTaskForm('delete');
     clearTaskForm('delete');
 });
+
+$("#update-form").on("submit", (event) => {
+    event.preventDefault();
+
+    let updateTask = {
+        id: $("#update-id").val(),
+        title: $("#update-title").val(),
+        description: $("#update-description").val(),
+        priority: $("#update-priority").val(),
+        deadline: $("#update-deadline").val().replace("T", " "),
+        status: $("#update-status").is(":checked") ? 1 : 0 
+    }
+
+    $.ajax({
+        url: window.location.origin + "/src/update_task.php",
+        method: "POST",
+        data: updateTask,
+        dataType: "json"
+    }).done((response) => {
+        toggleTaskForm('update');
+        clearTaskForm('update');
+        $(`#task-${updateTask.id}`).replaceWith(response);
+    }).fail((response) => {
+        console.log(response.responseText);
+    });
+});

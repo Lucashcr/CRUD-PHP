@@ -1,0 +1,19 @@
+<form method="post" id="update-form" class="CRUD-form" hidden>
+    <fieldset>
+        <input type="text" name="update-title" id="update-title" placeholder="Título" required>
+        <input type="datetime-local" name="update-deadline" id="update-deadline">
+        <select name="update-priority" id="update-priority" required>
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+        </select>
+        <input type="checkbox" name="update-status" id="update-status">
+        <label for="status">Concluída</label>
+    </fieldset>
+    <fieldset>
+        <textarea name="update-description" id="update-description" placeholder="Descrição"></textarea>
+    </fieldset>
+    <input type="hidden" name="update-id" id="update-id">
+    <input type="submit" form="update-form" value="Enviar">
+    <input type="button" onclick="toggleTaskForm('update')" value="Cancelar">
+</form>

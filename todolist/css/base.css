@@ -83,23 +83,25 @@ main table thead tr * {
 }
 
 main table tbody tr * {
-    background-color: var(--primary-bg);
-    color: var(--primary-fg);
-
     border: 1px solid black;
-
     padding: 5px;
 }
 
-.btn-edit, .btn-delete {
+main table tbody > :nth-child(odd) {
+    background-color: lightgray;
+}
+
+.btn-update, .btn-delete {
     width: 100%;
     height: 100%;
     padding: 5px;
+
+    background-color: unset;
     border: none;
     cursor: pointer;
 }
 
-.btn-edit *, .btn-delete * {
+.btn-update *, .btn-delete * {
     border: none;
     font-size: medium;
 }
