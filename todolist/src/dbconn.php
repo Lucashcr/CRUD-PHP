@@ -71,5 +71,23 @@ class DBConn
         }
         return true;
     }
+
+    public function update_task($task) {
+        $stmt = $this->mysqli->prepare("UPDATE tasks SET title = ?, description = ?, priority = ?, deadline = ?, status = ? WHERE id = ?");
+        $stmt->bind_param("sssssi",
+            $task["title"],
+            $task["description"],
+            $task["priority"],
+            $task["deadline"],
+            $task["status"],
+            $task["id"]
+        );
+        $stmt->execute();
+        if ($stmt->errno) {
+            echo "Failed to update task: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        return true;
+    }
 }
 ?>
