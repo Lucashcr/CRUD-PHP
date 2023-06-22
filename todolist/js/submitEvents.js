@@ -12,7 +12,7 @@ $("#create-form").on("submit", (event) => {
     }
 
     $.ajax({
-        url: window.location.origin + "/src/create_task.php",
+        url: window.location.origin + "/php/crud-actions/create_task.php",
         method: "POST",
         data: newTask,
         dataType: "json"
@@ -31,7 +31,7 @@ $("#delete-form").on("submit", (event) => {
     let id = $("#delete-id").val();
 
     $.ajax({
-        url: window.location.origin + "/src/delete_task.php?id=" + id,
+        url: window.location.origin + "/php/crud-actions/delete_task.php?id=" + id,
         method: "POST",
         data: { id: id },
         dataType: "json"
@@ -56,7 +56,7 @@ $("#update-form").on("submit", (event) => {
     }
 
     $.ajax({
-        url: window.location.origin + "/src/update_task.php",
+        url: window.location.origin + "/php/crud-actions/update_task.php",
         method: "POST",
         data: updateTask,
         dataType: "json"

@@ -1,8 +1,3 @@
-<?php
-require_once "src/dbconn.php";
-$conn = new DBConn();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -49,14 +44,13 @@ $conn = new DBConn();
     </main>
     <?php require_once "html/base/footer.html" ?>
 
-
     <script src="js/crudTaskFormActions.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/submitEvents.js"></script>
 
     <script>
         $.ajax({
-            url: window.location.origin + "/src/get_all_tasks.php",
+            url: window.location.origin + "/php/crud-actions/get_all_tasks.php",
             method: "GET",
             dataType: "json"
         }).done(function (response) {

@@ -14,7 +14,7 @@ function clearTaskForm(form) {
 function fillTaskForm(form, id) {
     console.log(form);
     document.getElementById(`${form}-id`).value = id;
-    fetch(window.location.origin + "/src/get_task.php?id=" + id)
+    fetch(window.location.origin + "/php/crud-actions/get_task.php?id=" + id)
         .then(response => response.json())
         .then(task => {
             document.getElementById(`${form}-title`).value = task.title;
@@ -28,7 +28,7 @@ function fillTaskForm(form, id) {
 
 function deleteTask(id) {
     document.getElementById("delete-id").value = id;
-    fetch(window.location.origin + "/src/get_task.php?id=" + id)
+    fetch(window.location.origin + "/php/crud-actions/get_task.php?id=" + id)
         .then(response => response.json())
         .then(task => {
             document.getElementById("delete-title").value = task.title;
