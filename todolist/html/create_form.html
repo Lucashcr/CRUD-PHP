@@ -1,17 +1,17 @@
 <form method="post" id="create-form" class="CRUD-form" hidden>
     <fieldset>
-        <input type="text" name="title" id="title" placeholder="Título" required>
-        <input type="datetime-local" name="deadline" id="deadline">
-        <select name="priority" id="priority" required>
+        <input type="text" name="create-title" id="create-title" placeholder="Título" required>
+        <input type="datetime-local" name="create-deadline" id="create-deadline">
+        <select name="create-priority" id="create-priority" required>
             <option value="low">Baixa</option>
             <option value="medium">Média</option>
             <option value="high">Alta</option>
         </select>
-        <input type="checkbox" name="status" id="status">
-        <label for="status">Concluída</label>
+        <input type="checkbox" name="create-status" id="create-status">
+        <label for="create-status">Concluída</label>
     </fieldset>
     <fieldset>
-        <textarea name="description" id="description" placeholder="Descrição"></textarea>
+        <textarea name="create-description" id="create-description" placeholder="Descrição"></textarea>
     </fieldset>
     <input type="submit" form="create-form" value="Enviar">
 </form>

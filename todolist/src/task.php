@@ -59,8 +59,7 @@ class Task
 
     public function toHTML()
     {
-        return "<tr>
-        <input type='hidden' name='id' id='id' value='{$this->id}'>
+        return "<tr id='task-{$this->id}'>
         <td>{$this->title}</td>
         <td>{$this->description}</td>
         <td>{$this->get_status()}</td>

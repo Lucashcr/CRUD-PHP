@@ -29,6 +29,20 @@ class DBConn
         }
     }
 
+    public function get_task($id)
+    {
+        $stmt = $this->mysqli->prepare("SELECT id, title, description, priority, deadline, status FROM tasks WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all();
+        if ($result) {
+            $task = new Task(...$result[0]);
+            return $task->toArray();
+        } else {
+            return null;
+        }
+    }
+
     public function insert_task($task)
     {
         $stmt = $this->mysqli->prepare("INSERT INTO tasks (title, description, priority, deadline, status) VALUES (?, ?, ?, ?, ?)");
@@ -42,6 +56,17 @@ class DBConn
         $stmt->execute();
         if ($stmt->errno) {
             echo "Failed to insert task: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        return true;
+    }
+
+    public function delete_task($id) {
+        $stmt = $this->mysqli->prepare("DELETE FROM tasks WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        if ($stmt->errno) {
+            echo "Failed to delete task: (" . $stmt->errno . ") " . $stmt->error;
             return false;
         }
         return true;

@@ -1,5 +1,20 @@
-<form method="get" id="delete-form" class="CRUD-form">
-    <label for="">Título: </label>
-    <input type="text" name="title" id="title" placeholder="Título" disabled>
+<form method="post" id="delete-form" class="CRUD-form" hidden>
+    <p>Tem certeza de que desejar deletar esta tarefa?</p>
+    <fieldset>
+        <input type="text" name="delete-title" id="delete-title" placeholder="Título" readonly>
+        <input type="datetime-local" name="delete-deadline" id="delete-deadline" readonly>
+        <select name="delete-priority" id="delete-priority" disabled>
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+        </select>
+        <input type="checkbox" name="delete-status" id="delete-status" disabled>
+        <label for="delete-status">Concluída</label>
+    </fieldset>
+    <fieldset>
+        <textarea name="delete-description" id="delete-description" placeholder="Descrição" readonly></textarea>
+    </fieldset>
+    <input type="hidden" name="delete-id" id="delete-id">
     <input type="submit" form="delete-form" value="Excluir">
+    <input type="button" onclick="toggleTaskForm('delete')" value="Cancelar">
 </form>

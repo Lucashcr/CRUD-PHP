@@ -41,19 +41,19 @@ $conn = new DBConn();
             </tbody>
         </table>
         <? require "html/create_form.html" ?>
-        <button onclick="toggleCreateTaskForm()">Nova tarefa</button>
+        <? require "html/delete_form.html" ?>
+        <button onclick="toggleTaskForm('create')">Nova tarefa</button>
     </main>
-    <button class="btn"><i class="fa fa-trash"></i></button>
     <?php require_once "html/footer.html" ?>
 
 
     <script src="js/crudTaskFormActions.js"></script>
     <script src="js/jquery.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/submitEvents.js"></script>
 
     <script>
         $.ajax({
-            url: window.location.origin + "/src/get_tasks.php",
+            url: window.location.origin + "/src/get_all_tasks.php",
             method: "GET",
             dataType: "json"
         }).done(function (response) {
