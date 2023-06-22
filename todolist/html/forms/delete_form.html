@@ -8,13 +8,17 @@
             <option value="medium">Média</option>
             <option value="high">Alta</option>
         </select>
-        <input type="checkbox" name="delete-status" id="delete-status" disabled>
-        <label for="delete-status">Concluída</label>
+        <span>
+            <input type="checkbox" name="delete-status" id="delete-status" disabled>
+            <label for="delete-status">Concluída</label>
+        </span>
     </fieldset>
     <fieldset>
         <textarea name="delete-description" id="delete-description" placeholder="Descrição" readonly></textarea>
     </fieldset>
     <input type="hidden" name="delete-id" id="delete-id">
-    <input type="submit" form="delete-form" value="Excluir">
-    <input type="button" onclick="toggleTaskForm('delete')" value="Cancelar">
+    <div class="btn-container">
+        <input type="submit" form="delete-form" value="Excluir">
+        <input type="button" onclick="toggleTaskForm('delete')" value="Cancelar">
+    </div>
 </form>

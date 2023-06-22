@@ -7,13 +7,17 @@
             <option value="medium">Média</option>
             <option value="high">Alta</option>
         </select>
-        <input type="checkbox" name="update-status" id="update-status">
-        <label for="status">Concluída</label>
+        <span>
+            <input type="checkbox" name="update-status" id="update-status">
+            <label for="update-status">Concluída</label>
+        </span>
     </fieldset>
     <fieldset>
         <textarea name="update-description" id="update-description" placeholder="Descrição"></textarea>
     </fieldset>
     <input type="hidden" name="update-id" id="update-id">
-    <input type="submit" form="update-form" value="Enviar">
-    <input type="button" onclick="toggleTaskForm('update')" value="Cancelar">
+    <div class="btn-container">
+        <input type="submit" form="update-form" value="Enviar">
+        <input type="button" onclick="toggleTaskForm('update')" value="Cancelar">
+    </div>
 </form>

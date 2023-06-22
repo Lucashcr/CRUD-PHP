@@ -7,11 +7,16 @@
             <option value="medium">Média</option>
             <option value="high">Alta</option>
         </select>
-        <input type="checkbox" name="create-status" id="create-status">
-        <label for="create-status">Concluída</label>
+        <span>
+            <input type="checkbox" name="create-status" id="create-status">
+            <label for="create-status">Concluída</label>
+        </span>
     </fieldset>
     <fieldset>
         <textarea name="create-description" id="create-description" placeholder="Descrição"></textarea>
     </fieldset>
-    <input type="submit" form="create-form" value="Enviar">
+    <div class="btn-container">
+        <input type="submit" form="create-form" value="Enviar">
+        <input type="button" onclick="toggleTaskForm('create')" value="Cancelar">
+    </div>
 </form>

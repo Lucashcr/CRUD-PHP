@@ -43,7 +43,9 @@ $conn = new DBConn();
         <? require "html/forms/create_form.html" ?>
         <? require "html/forms/delete_form.html" ?>
         <? require "html/forms/update_form.html" ?>
-        <button onclick="toggleTaskForm('create')">Nova tarefa</button>
+        <div class="btn-container">
+            <button onclick="toggleTaskForm('create')">Nova tarefa</button>
+        </div>
     </main>
     <?php require_once "html/base/footer.html" ?>
 

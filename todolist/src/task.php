@@ -65,8 +65,8 @@ class Task
         <td>{$this->get_status()}</td>
         <td>{$this->get_priority()}</td>
         <td>{$this->get_formatted_deadline()}</td>
-        <td><button class='btn-update' onclick=\"fillTaskForm('update', $this->id)\"><i class='fa fa-pencil'> Atualizar</i></button></td>
-        <td><button class='btn-delete' onclick=\"fillTaskForm('delete', $this->id)\"><i class='fa fa-trash'> Excluir</i></button></td>
+        <td><button class='btn-update' onclick=\"fillTaskForm('update', $this->id)\"><i class='fa fa-pencil'></i><span>Atualizar</span></button></td>
+        <td><button class='btn-delete' onclick=\"fillTaskForm('delete', $this->id)\"><i class='fa fa-trash'></i><span>Excluir</span></button></td>
         </tr>";
     }
 
