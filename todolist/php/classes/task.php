@@ -60,11 +60,11 @@ class Task
     public function toHTML()
     {
         return "<tr id='task-{$this->id}'>
-        <td>{$this->title}</td>
-        <td>{$this->description}</td>
-        <td>{$this->get_status()}</td>
-        <td>{$this->get_priority()}</td>
-        <td>{$this->get_formatted_deadline()}</td>
+        <td class='title'>{$this->title}</td>
+        <td class-'description'>{$this->description}</td>
+        <td class='status'>{$this->get_status()}</td>
+        <td class='priority'>{$this->get_priority()}</td>
+        <td class='deadline'>{$this->get_formatted_deadline()}</td>
         <td><button class='btn-update' onclick=\"fillTaskForm('update', $this->id)\"><i class='fa fa-pencil'></i><span>Atualizar</span></button></td>
         <td><button class='btn-delete' onclick=\"fillTaskForm('delete', $this->id)\"><i class='fa fa-trash'></i><span>Excluir</span></button></td>
         </tr>";

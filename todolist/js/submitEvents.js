@@ -21,7 +21,7 @@ $("#create-form").on("submit", (event) => {
         clearTaskForm('create');
         tasksTBody.insertAdjacentHTML('beforeend', response);
     }).fail((response) => {
-        console.log(response.responseText);
+        alert(response.responseText);
     });
 });
 
@@ -37,6 +37,8 @@ $("#delete-form").on("submit", (event) => {
         dataType: "json"
     }).done((response) => {
         $(`#task-${id}`).remove();
+    }).fail((response) => {
+        alert(response.responseText);
     });
     
     toggleTaskForm('delete');
@@ -65,6 +67,6 @@ $("#update-form").on("submit", (event) => {
         clearTaskForm('update');
         $(`#task-${updateTask.id}`).replaceWith(response);
     }).fail((response) => {
-        console.log(response.responseText);
+        alert(response.responseText);
     });
 });

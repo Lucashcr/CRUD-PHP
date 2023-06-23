@@ -72,6 +72,28 @@ main table tbody tr * {
     padding: 5px;
 }
 
+main table tbody tr .title {
+    width: 50px;
+}
+
+main table tbody tr .title {
+    width: 200px;
+}
+
+main table tbody tr .description {
+    max-width: 1000px;
+}
+
+main table tbody tr .status,
+main table tbody tr .priority {
+    width: 100px;
+}
+
+.status, .priority, .deadline {
+    width: 180px;
+    text-align: center;
+}
+
 main table tbody > :nth-child(odd) {
     background-color: lightgray;
 }
@@ -146,7 +168,7 @@ button, input[type="submit"], input[type="button"] {
 }
 
 .btn-update, .btn-delete {
-    width: 100%;
+    width: 120px;
     height: 100%;
     margin: 0;
     padding: 5px;

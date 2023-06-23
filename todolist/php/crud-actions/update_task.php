@@ -16,7 +16,5 @@ $conn = new DBConn();
 $result = $conn->update_task($task->toArray());
 if ($result) {
     echo json_encode($task->toHTML());
-} else {
-    echo json_encode(["error" => "Failed to update task"]);
 }
 ?>

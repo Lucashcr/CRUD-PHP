@@ -12,7 +12,6 @@ function clearTaskForm(form) {
 }
 
 function fillTaskForm(form, id) {
-    console.log(form);
     document.getElementById(`${form}-id`).value = id;
     fetch(window.location.origin + "/php/crud-actions/get_task.php?id=" + id)
         .then(response => response.json())
